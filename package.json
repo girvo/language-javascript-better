@@ -6,13 +6,12 @@
     "atom": "*",
     "node": "*"
   },
-  "homepage": "http://atom.github.io/language-javascript",
   "repository": {
     "type": "git",
-    "url": "https://github.com/atom/language-javascript.git"
+    "url": "https://github.com/AMalininHere/language-javascript-better.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/atom/language-javascript/issues"
+    "url": "https://github.com/AMalininHere/language-javascript-better/issues"
   }
 }
