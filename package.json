@@ -1,11 +1,12 @@
 {
   "name": "language-javascript-better",
-  "version": "0.2.0",
-  "description": "JavaScript language support in Atom",
+  "version": "0.2.1",
+  "description": "JavaScript language support in Atom like in Brackets",
   "engines": {
     "atom": "*",
     "node": "*"
   },
+  "homepage": "https://atom.io/packages/language-javascript-better",
   "repository": {
     "type": "git",
     "url": "https://github.com/AMalininHere/language-javascript-better.git"
