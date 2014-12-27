@@ -139,30 +139,16 @@
     ]
   }
   {
-    'begin': '\\b([a-zA-Z_?.$][\\w?.$]*)\\s*:\\s*\\b(function\\*?)?\\s*(\\*?)(\\()'
+    'begin': '\\b([a-zA-Z_?.$][\\w?.$]*)\\s*:'
     'beginCaptures':
       '1':
         'name': 'entity.name.function.js'
-      '2':
-        'name': 'storage.type.function.js'
-      '3':
-        'name': 'storage.type.function.js'
-      '4':
-        'name': 'punctuation.definition.parameters.begin.js'
-    'comment': 'match stuff like: foobar: function() { … }'
-    'end': '(\\))'
-    'endCaptures':
-      '1':
-        'name': 'punctuation.definition.parameters.end.js'
+    'comment': 'match stuff like: foobar: something'
     'name': 'meta.function.json.js'
-    'patterns': [
-      {
-        'include': '#function-params'
-      }
-    ]
+    'end': '(\\s*)'
   }
   {
-    'begin': '(?:((\')(.*?)(\'))|((")(.*?)(")))\\s*:\\s*\\b(function\\*?)?\\s*(\\*?)(\\()'
+    'begin': '(?:((\')(.*?)(\'))|((")(.*?)(")))\\s*:'
     'beginCaptures':
       '1':
         'name': 'string.quoted.single.js'
@@ -180,23 +166,9 @@
         'name': 'entity.name.function.js'
       '8':
         'name': 'punctuation.definition.string.end.js'
-      '9':
-        'name': 'storage.type.function.js'
-      '10':
-        'name': 'storage.type.function.js'
-      '11':
-        'name': 'punctuation.definition.parameters.begin.js'
-    'comment': 'Attempt to match "foo": function'
-    'end': '(\\))'
-    'endCaptures':
-      '1':
-        'name': 'punctuation.definition.parameters.end.js'
+    'comment': 'Attempt to match "foo": something'
+    'end': '(\\s*)'
     'name': 'meta.function.json.js'
-    'patterns': [
-      {
-        'include': '#function-params'
-      }
-    ]
   }
   {
     'captures':
