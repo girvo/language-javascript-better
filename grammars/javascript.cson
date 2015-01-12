@@ -148,24 +148,12 @@
     'end': '(\\s*)'
   }
   {
-    'begin': '(?:((\')(.*?)(\'))|((")(.*?)(")))\\s*:'
+    'begin': '(?:((?:\')(?:.*?)(?:\'))|((?:")(?:.*?)(?:")))\\s*:'
     'beginCaptures':
       '1':
-        'name': 'string.quoted.single.js'
+        'name': 'entity.name.function.js'
       '2':
-        'name': 'punctuation.definition.string.begin.js'
-      '3':
         'name': 'entity.name.function.js'
-      '4':
-        'name': 'punctuation.definition.string.end.js'
-      '5':
-        'name': 'string.quoted.double.js'
-      '6':
-        'name': 'punctuation.definition.string.begin.js'
-      '7':
-        'name': 'entity.name.function.js'
-      '8':
-        'name': 'punctuation.definition.string.end.js'
     'comment': 'Attempt to match "foo": something'
     'end': '(\\s*)'
     'name': 'meta.function.json.js'
