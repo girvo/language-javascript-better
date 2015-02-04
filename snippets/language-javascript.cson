@@ -86,3 +86,6 @@
   'Start Docblock':
     'prefix': '/**'
     'body': '/**\n * $1\n */$0'
+  'Class ES6':
+    'prefix': 'class'
+    'body': 'class ${1:MyClass} {\n\tconstructor($2) {\n\t\t$3\n\t}\n}$0'
