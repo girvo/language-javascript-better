@@ -32,26 +32,6 @@
     ]
   }
   {
-    'begin': '\\b([a-zA-Z_?.$][\\w?.$]*)\\s*:'
-    'beginCaptures':
-      '1':
-        'name': 'entity.name.property.js'
-    'comment': 'match stuff like: foobar: something'
-    'name': 'meta.function.json.js'
-    'end': '(\\s*)'
-  }
-  {
-    'begin': '(?:((?:\')(?:.*?)(?:\'))|((?:")(?:.*?)(?:")))\\s*:'
-    'beginCaptures':
-      '1':
-        'name': 'entity.name.property.js'
-      '2':
-        'name': 'entity.name.property.js'
-    'comment': 'Attempt to match "foo": something'
-    'end': '(\\s*)'
-    'name': 'meta.function.json.js'
-  }
-  {
     'captures':
       '1':
         'name': 'keyword.operator.new.js'
