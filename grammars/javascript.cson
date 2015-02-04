@@ -34,6 +34,15 @@
   {
     'captures':
       '1':
+        'name': 'storage.type.class.js'
+      '2':
+        'name': 'entity.name.type.instance.js'
+    'match': '(class)\\s+(\\w+(?:\\.\\w*)?)'
+    'name': 'meta.class.instance.constructor'
+  }
+  {
+    'captures':
+      '1':
         'name': 'keyword.operator.new.js'
       '2':
         'name': 'entity.name.type.instance.js'
