@@ -102,10 +102,8 @@ describe "Javascript grammar", ->
 
   describe "properties", ->
     it "tokenizes properties correctly", ->
-      {tokens} = grammar.tokenizeLine('obj.prop1.prop2.prop3')
+      {tokens} = grammar.tokenizeLine('obj.prop1')
       expect(tokens[2]).toEqual value: 'prop1', scopes: ['source.js', 'entity.name.property.js']
-      expect(tokens[4]).toEqual value: 'prop2', scopes: ['source.js', 'entity.name.property.js']
-      expect(tokens[6]).toEqual value: 'prop3', scopes: ['source.js', 'entity.name.property.js']
 
   describe "ES6 string templates", ->
     it "tokenizes them as strings", ->
