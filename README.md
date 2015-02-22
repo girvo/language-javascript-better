@@ -1,4 +1,4 @@
-# JavaScript language support in Atom like in Brackets [![Build Status](https://travis-ci.org/AMalininHere/language-javascript-better.svg?branch=master)](https://travis-ci.org/AMalininHere/language-javascript-better)
+# JavaScript language support in Atom like in Brackets
 
 Adds syntax highlighting and snippets to JavaScript file in Atom like in Brackets.
 
