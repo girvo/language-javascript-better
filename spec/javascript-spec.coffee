@@ -5,7 +5,7 @@ describe "Javascript grammar", ->
 
   beforeEach ->
     waitsForPromise ->
-      atom.packages.activatePackage("language-javascript")
+      atom.packages.activatePackage("language-javascript-better")
 
     runs ->
       grammar = atom.grammars.grammarForScopeName("source.js")
@@ -100,6 +100,13 @@ describe "Javascript grammar", ->
       expect(lines[1][0]).toEqual value: '/ ', scopes: ['source.js']
       expect(lines[1][1]).toEqual value: '2', scopes: ['source.js', 'constant.numeric.js']
 
+  describe "Properties", ->
+    it "tokenizes properties", ->
+      {tokens} = grammar.tokenizeLine('obj.prop1.prop2.prop3')
+      expect(tokens[2]).toEqual value: 'prop1', scopes: ['source.js', 'entity.name.property.js']
+      expect(tokens[4]).toEqual value: 'prop2', scopes: ['source.js', 'entity.name.property.js']
+      expect(tokens[6]).toEqual value: 'prop3', scopes: ['source.js', 'entity.name.property.js']
+
   describe "ES6 string templates", ->
     it "tokenizes them as strings", ->
       {tokens} = grammar.tokenizeLine('`hey ${name}`')
@@ -114,15 +121,6 @@ describe "Javascript grammar", ->
     it "tokenizes it as a keyword", ->
       {tokens} = grammar.tokenizeLine('default: ')
       expect(tokens[0]).toEqual value: 'default', scopes: ['source.js', 'keyword.control.js']
-
-  it "tokenizes comments in function params", ->
-    {tokens} = grammar.tokenizeLine('foo: function (/**Bar*/bar){')
-
-    expect(tokens[4]).toEqual value: '(', scopes: ['source.js', 'meta.function.json.js', 'punctuation.definition.parameters.begin.js']
-    expect(tokens[5]).toEqual value: '/**', scopes: ['source.js', 'meta.function.json.js', 'comment.block.documentation.js', 'punctuation.definition.comment.js']
-    expect(tokens[6]).toEqual value: 'Bar', scopes: ['source.js', 'meta.function.json.js', 'comment.block.documentation.js']
-    expect(tokens[7]).toEqual value: '*/', scopes: ['source.js', 'meta.function.json.js', 'comment.block.documentation.js', 'punctuation.definition.comment.js']
-    expect(tokens[8]).toEqual value: 'bar', scopes: ['source.js', 'meta.function.json.js', 'variable.parameter.function.js']
 
   it "tokenizes /* */ comments", ->
     {tokens} = grammar.tokenizeLine('/**/')
