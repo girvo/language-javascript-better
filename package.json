@@ -1,6 +1,6 @@
 {
   "name": "language-javascript-better",
-  "version": "0.7.3",
+  "version": "0.7.4",
   "description": "JavaScript language support in Atom like in Brackets",
   "engines": {
     "atom": "*",
