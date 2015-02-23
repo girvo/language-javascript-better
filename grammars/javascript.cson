@@ -32,11 +32,15 @@
     ]
   }
   {
-    'match': '\\b(class)\\s+(\\w+(?:\\.\\w*)?)'
+    'match': '\\b(class)\\s+(\\w+(?:\\.\\w*)?)(?:\\s+(extends)\\s+(\\w+(?:\\.\\w*)?))?'
     'captures':
       '1':
         'name': 'storage.type.class.js'
       '2':
+        'name': 'entity.name.type.js'
+      '3':
+        'name': 'storage.modifier.js',
+      '4':
         'name': 'entity.name.type.js'
     'name': 'meta.class.js'
   }
