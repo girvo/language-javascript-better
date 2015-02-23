@@ -9,7 +9,7 @@
 'name': 'JavaScript'
 'patterns': [
   {
-    'begin': '\\b(function\\*?)\\s*((\\*)|(\\*?[a-zA-Z_$]\\w*))?\\s*(\\()'
+    'begin': '\\b(function\\*?)\\s*((\\*)|(?:(?:\\s+)(\\*?[a-zA-Z_$]\\w*)))?\\s*(\\()'
     'beginCaptures':
       '1':
         'name': 'storage.type.function.js'
