@@ -9,7 +9,7 @@
 'name': 'JavaScript'
 'patterns': [
   {
-    'begin': '\\b(?:(async)(?:\\s+))?(function)(?:(?:(?:\\s*)(\\*)(?:\\s+)|(?:\\s+)(\\*)(?:\\s*)|(?:\\s+))([a-zA-Z_$][a-zA-Z_$0-9]*))?\\s*(\\()'
+    'begin': '\\b(?:(async)(?:\\s+))?(function)(?:(?:(?:\\s*)(\\*)(?:\\s+)|(?:\\s+)(\\*)(?:\\s*)|(?:\\s+))([a-zA-Z_$][a-zA-Z_$0-9]*)?)\\s*(\\()'
     'beginCaptures':
       '1':
         'name': 'storage.modifier.js'
