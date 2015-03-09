@@ -9,15 +9,17 @@
 'name': 'JavaScript'
 'patterns': [
   {
-    'begin': '\\b(function\\*?)\\s*((\\*)|(?:(?:\\s+)(\\*?[a-zA-Z_$]\\w*)))?\\s*(\\()'
+    'begin': '\\b(?:(async)(?:\\s+))?(function\\*?)\\s*((\\*)|(?:(?:\\s+)(\\*?[a-zA-Z_$]\\w*)))?\\s*(\\()'
     'beginCaptures':
       '1':
-        'name': 'storage.type.function.js'
-      '3':
+        'name': 'keyword.control.js'
+      '2':
         'name': 'storage.type.function.js'
       '4':
-        'name': 'entity.name.function.js'
+        'name': 'storage.type.function.js'
       '5':
+        'name': 'entity.name.function.js'
+      '6':
         'name': 'punctuation.definition.parameters.begin.js'
     'comment': 'match regular function like: function myFunc(arg) { … }'
     'end': '(\\))'
