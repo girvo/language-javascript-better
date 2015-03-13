@@ -152,6 +152,13 @@ describe "Javascript grammar", ->
       {tokens} = grammar.tokenizeLine('import \'react\' as React')
       expect(tokens[0]).toEqual value: 'import', scopes: ['source.js', 'meta.import.js', 'keyword.control.js']
       expect(tokens[6]).toEqual value: 'as', scopes: ['source.js', 'meta.import.js', 'keyword.control.js']
+    it "Tokenizes import ... from", ->
+      {tokens} = grammar.tokenizeLine('import React from \'react\'')
+      expect(tokens[0]).toEqual value: 'import', scopes: ['source.js', 'meta.import.js', 'keyword.control.js']
+      expect(tokens[4]).toEqual value: 'from', scopes: ['source.js', 'meta.import.js', 'keyword.control.js']
+      {tokens} = grammar.tokenizeLine('import {React} from \'react\'')
+      expect(tokens[0]).toEqual value: 'import', scopes: ['source.js', 'meta.import.js', 'keyword.control.js']
+      expect(tokens[6]).toEqual value: 'from', scopes: ['source.js', 'meta.import.js', 'keyword.control.js']
 
   describe "default: in a switch statement", ->
     it "tokenizes it as a keyword", ->
