@@ -139,6 +139,14 @@ describe "Javascript grammar", ->
       expect(tokens[4]).toEqual value: '}', scopes: ['source.js', 'string.quoted.template.js', 'source.js.embedded.source', 'punctuation.section.embedded.js']
       expect(tokens[5]).toEqual value: '`', scopes: ['source.js', 'string.quoted.template.js', 'punctuation.definition.string.end.js']
 
+  describe "ES6 Spread", ->
+    it "Tokenizes spreads", ->
+      {tokens} = grammar.tokenizeLine('[ ...this.arr ]')
+      expect(tokens[0]).toEqual value: '[', scopes: ['source.js', 'meta.brace.square.js']
+      expect(tokens[5]).toEqual value: 'this', scopes: ['source.js', 'variable.language.js']
+      expect(tokens[7]).toEqual value: 'arr', scopes: ['source.js', 'entity.name.property.js']
+      expect(tokens[9]).toEqual value: ']', scopes: ['source.js', 'meta.brace.square.js']
+
   describe "default: in a switch statement", ->
     it "tokenizes it as a keyword", ->
       {tokens} = grammar.tokenizeLine('default: ')
