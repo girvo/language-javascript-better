@@ -117,6 +117,12 @@ describe "Javascript grammar", ->
       expect(tokens[0]).toEqual value: 'async', scopes: ['source.js', 'meta.function.js', 'storage.modifier.js']
       expect(tokens[2]).toEqual value: 'function', scopes: ['source.js', 'meta.function.js', 'storage.type.function.js']
       expect(tokens[4]).toEqual value: 'f', scopes: ['source.js', 'meta.function.js', 'entity.name.function.js']
+    it "tokenizes methods", ->
+      {tokens} = grammar.tokenizeLine('f(a) {}')
+      expect(tokens[0]).toEqual value: 'f', scopes: ['source.js', 'meta.method.js', 'entity.name.function.js']
+      expect(tokens[1]).toEqual value: '(', scopes: ['source.js', 'meta.method.js', 'punctuation.definition.parameters.begin.js']
+      expect(tokens[2]).toEqual value: 'a', scopes: ['source.js', 'meta.method.js', 'variable.parameter.function.js']
+      expect(tokens[3]).toEqual value: ')', scopes: ['source.js', 'meta.method.js', 'punctuation.definition.parameters.end.js']
 
   describe "ES6 class", ->
     it "tokenizes class", ->
