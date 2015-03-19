@@ -180,6 +180,10 @@
     'name': 'comment.block.html.js'
   }
   {
+    'match': '=>',
+    'name': 'storage.type.arrow.js'
+  }
+  {
     'match': '(?<!\\.)\\b(class|enum|function|interface)(?!\\s*:)\\b'
     'name': 'storage.type.js'
   }

@@ -124,6 +124,10 @@ describe "Javascript grammar", ->
       expect(tokens[2]).toEqual value: 'a', scopes: ['source.js', 'meta.method.js', 'variable.parameter.function.js']
       expect(tokens[4]).toEqual value: 'b', scopes: ['source.js', 'meta.method.js', 'variable.parameter.function.js']
       expect(tokens[5]).toEqual value: ')', scopes: ['source.js', 'meta.method.js', 'punctuation.definition.parameters.end.js']
+    it "tokenizes arrows", ->
+      {tokens} = grammar.tokenizeLine('a.map((e) => e.value)')
+      expect(tokens[2]).toEqual value: 'map', scopes: ['source.js', 'entity.name.property.js']
+      expect(tokens[8]).toEqual value: '=>', scopes: ['source.js', 'storage.type.arrow.js']
 
   describe "ES6 class", ->
     it "tokenizes class", ->
