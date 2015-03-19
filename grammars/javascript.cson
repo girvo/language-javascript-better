@@ -12,11 +12,15 @@
   {
     'begin': '(?<!\\.)\\b(import)(?!\\s*:)\\b'
     'beginCaptures':
-      '0':
+      '1':
         'name': 'keyword.control.js'
     'patterns': [
       {
         'include': '#strings'
+      }
+      {
+        'match': 'as|from',
+        'name': 'keyword.control.js'
       }
       {
         'match': '\\b([a-zA-Z_$][a-zA-Z_$0-9]*)\\b'
@@ -30,10 +34,10 @@
         'name': 'meta.brace.curly.js'
       }
     ]
-    'end': '\\b(as|from)\\b'
-    'endCaptures':
-      '0':
-        'name': 'keyword.control.js'
+    'end': '(;)?\\n'
+    'entCaptures':
+      '1':
+        'name': 'punctuation.terminator.statement.js'
     'name': 'meta.import.js'
   }
   {
