@@ -362,7 +362,7 @@
   'methods':
     'patterns': [
       {
-        'begin': '\\b([a-zA-Z_$][a-zA-Z_$0-9]*)\\s*(\\()(?=(?:[\\w\\d/\\*\\s,]*)?\\)\\s*\\n*\\s*\\{)'
+        'begin': '\\b([a-zA-Z_$][a-zA-Z_$0-9]*)\\s*(\\()(?=(?:[\\w\\d/\\*\\s,]*)?\\)\\s*\\{)'
         'beginCaptures':
           '1':
             'name': 'entity.name.function.js'
