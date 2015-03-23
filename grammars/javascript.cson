@@ -70,23 +70,23 @@
     ]
   }
   {
-    'begin': '\\b([a-zA-Z_$][a-zA-Z_$0-9]*)\\s*(\\()(?=(?:[\\w\\d/\\*\\s,]*)*?\\s*\\)\\s*\\{)'
+    'begin': '(?<=(?:=|\\())\\s*(\\{)'
     'beginCaptures':
       '1':
-        'name': 'entity.name.function.js'
-      '2':
-        'name': 'punctuation.definition.parameters.begin.js'
-    'comment': 'match regular function like: function myFunc(arg) { … }'
-    'end': '(\\))'
+        'name': 'meta.object.begin.js'
+    'end': '(\\})'
     'endCaptures':
       '1':
-        'name': 'punctuation.definition.parameters.end.js'
-    'name': 'meta.method.js'
+        'name': 'meta.object.end.js'
     'patterns': [
       {
-        'include': '#function-params'
+        'include': '$self'
+      }
+      {
+        'include': '#methods'
       }
     ]
+    'name': 'meta.object.js'
   }
   {
     'match': '\\b(class)(?:(?:\\s+(extends)\\s+(\\w+(?:\\.\\w*)?))|(?:(?:\\s+(\\w+(?:\\.\\w*)?))(?:\\s+(extends)\\s+(\\w+(?:\\.\\w*)?))?))'
@@ -357,6 +357,28 @@
       }
       {
         'include': '#comments'
+      }
+    ]
+  'methods':
+    'patterns': [
+      {
+        'begin': '\\b([a-zA-Z_$][a-zA-Z_$0-9]*)\\s*(\\()(?=(?:[\\w\\d/\\*\\s,]*)?\\)\\s*\\n*\\s*\\{)'
+        'beginCaptures':
+          '1':
+            'name': 'entity.name.function.js'
+          '2':
+            'name': 'punctuation.definition.parameters.begin.js'
+        'comment': 'match regular function like: function myFunc(arg) { … }'
+        'end': '(\\))'
+        'endCaptures':
+          '1':
+            'name': 'punctuation.definition.parameters.end.js'
+        'name': 'meta.method.js'
+        'patterns': [
+          {
+            'include': '#function-params'
+          }
+        ]
       }
     ]
   'interpolated_js':
