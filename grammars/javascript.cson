@@ -19,7 +19,7 @@
         'include': '#strings'
       }
       {
-        'match': 'as|from',
+        'match': '\\b(as|from)\\b',
         'name': 'keyword.control.js'
       }
       {
