@@ -1,6 +1,6 @@
 {
   "name": "language-javascript-better",
-  "version": "0.22.2",
+  "version": "0.22.3",
   "description": "Alternative JavaScript language support with ES6 features in Atom",
   "engines": {
     "atom": "*",
