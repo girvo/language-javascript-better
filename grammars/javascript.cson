@@ -106,26 +106,6 @@
     'include': '#strings'
   }
   {
-    'begin': '`'
-    'beginCaptures':
-      '0':
-        'name': 'punctuation.definition.string.begin.js'
-    'end': '`'
-    'endCaptures':
-      '0':
-        'name': 'punctuation.definition.string.end.js'
-    'name': 'string.quoted.template.js'
-    'patterns': [
-      {
-        'match': '\\\\(x\\h{2}|[0-2][0-7]{,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.)'
-        'name': 'constant.character.escape.js'
-      }
-      {
-        'include': '#interpolated_js'
-      }
-    ]
-  }
-  {
     'include': '#comments'
   }
   {
@@ -326,6 +306,26 @@
           }
         ]
       }
+      {
+        'begin': '`'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.string.begin.js'
+        'end': '`'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.definition.string.end.js'
+        'name': 'string.quoted.template.js'
+        'patterns': [
+          {
+            'match': '\\\\(x\\h{2}|[0-2][0-7]{,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.)'
+            'name': 'constant.character.escape.js'
+          }
+          {
+            'include': '#interpolated_js'
+          }
+        ]
+      }
     ]
   'function-params':
     'patterns': [
@@ -337,13 +337,16 @@
             'match': '\\G[\\p{L}\\p{Nl}$_][\\p{L}\\p{Nl}$\\p{Mn}\\p{Mc}\\p{Nd}\\p{Pc}\\x{200C}\\x{200D}]*'
             'name': 'variable.parameter.function.js'
           }
+          {
+            'include': '#strings'
+          }
+          {
+            'include': '$base'
+          }
         ]
       }
       {
         'include': '#comments'
-      }
-      {
-        'include': '#strings'
       }
     ]
   'methods':
