@@ -7,7 +7,7 @@
   'es6'
 ]
 'firstLineMatch': '^#!.*\\b(node|iojs)'
-'name': 'JavaScript'
+'name': 'JavaScript ES6'
 'patterns': [
   {
     'begin': '(?<!\\.)\\b(import)(?!\\s*:)\\b'
