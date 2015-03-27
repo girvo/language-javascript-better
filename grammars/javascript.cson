@@ -41,33 +41,7 @@
     'name': 'meta.import.js'
   }
   {
-    'begin': '\\b(?:(async)(?:\\s+))?(function)(?:(?:(?:\\s*)(\\*))|(?:(?:(?:\\s*)(\\*)(?:\\s+)|(?:\\s+)(\\*)(?:\\s*)|(?:\\s+))([a-zA-Z_$][a-zA-Z_$0-9]*)))?\\s*(\\()'
-    'beginCaptures':
-      '1':
-        'name': 'storage.modifier.js'
-      '2':
-        'name': 'storage.type.function.js'
-      '3':
-        'name': 'storage.modifier.js'
-      '4':
-        'name': 'storage.modifier.js'
-      '5':
-        'name': 'storage.modifier.js'
-      '6':
-        'name': 'entity.name.function.js'
-      '7':
-        'name': 'punctuation.definition.parameters.begin.js'
-    'comment': 'match regular function like: function myFunc(arg) { … }'
-    'end': '(\\))'
-    'endCaptures':
-      '1':
-        'name': 'punctuation.definition.parameters.end.js'
-    'name': 'meta.function.js'
-    'patterns': [
-      {
-        'include': '#function-params'
-      }
-    ]
+    'include': '#functions'
   }
   {
     'include': '#methods'
@@ -332,9 +306,11 @@
       {
         'begin': '(?=[\\p{L}\\p{Nl}$_])'
         'end': '(?=[,)])'
+
         'patterns': [
           {
-            'match': '\\G[\\p{L}\\p{Nl}$_][\\p{L}\\p{Nl}$\\p{Mn}\\p{Mc}\\p{Nd}\\p{Pc}\\x{200C}\\x{200D}]*'
+            'match': '\\G\\b[\\p{L}\\p{Nl}$_][\\p{L}\\p{Nl}$\\p{Mn}\\p{Mc}\\p{Nd}\\p{Pc}\\x{200C}\\x{200D}]*'
+            '\G[\p{L}\p{Nl}$_]'
             'name': 'variable.parameter.function.js'
           }
           {
@@ -352,18 +328,85 @@
   'methods':
     'patterns': [
       {
+        'name': 'meta.method.js'
+        'comment': 'match regular function like: function myFunc(arg) { … }'
+
         'begin': '\\b((?!(?:break|case|catch|continue|do|else|finally|for|function|if|export|import|package|return|switch|throw|try|while|with)[\\s\\(])(?:[a-zA-Z_$][a-zA-Z_$0-9]*))\\s*(\\()(?=(?:[^\\(\\)]*)?\\)\\s*\\{)'
         'beginCaptures':
           '1':
             'name': 'entity.name.function.js'
           '2':
             'name': 'punctuation.definition.parameters.begin.js'
+
+        'patterns': [
+          {
+            'include': '#function-params'
+          }
+        ]
+
+        'end': '(\\))'
+        'endCaptures':
+          '1':
+            'name': 'punctuation.definition.parameters.end.js'
+
+      }
+    ]
+  'functions':
+    'patterns': [
+      {
+        'begin': '\\b(?:(async)(?:\\s+))?(function)(?:(?:(?:\\s*)(\\*))|(?:(?:(?:\\s*)(\\*)(?:\\s+)|(?:\\s+)(\\*)(?:\\s*)|(?:\\s+))([a-zA-Z_$][a-zA-Z_$0-9]*)))?\\s*(\\()'
+        'beginCaptures':
+          '1':
+            'name': 'storage.modifier.js'
+          '2':
+            'name': 'storage.type.function.js'
+          '3':
+            'name': 'storage.modifier.js'
+          '4':
+            'name': 'storage.modifier.js'
+          '5':
+            'name': 'storage.modifier.js'
+          '6':
+            'name': 'entity.name.function.js'
+          '7':
+            'name': 'punctuation.definition.parameters.begin.js'
         'comment': 'match regular function like: function myFunc(arg) { … }'
         'end': '(\\))'
         'endCaptures':
           '1':
             'name': 'punctuation.definition.parameters.end.js'
-        'name': 'meta.method.js'
+        'name': 'meta.function.js'
+        'patterns': [
+          {
+            'include': '#function-params'
+          }
+        ]
+      }
+      {
+        'name': 'meta.function.arrow.js'
+
+        'begin': '(?<![A-Za-z0-9])(\\()(?=.*?=>)'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.parameters.begin.js'
+
+        'end': '(\\))(?=\\s*=>)'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.definition.parameters.end.js'
+
+        'patterns': [
+          {
+            'include': '#function-params'
+          }
+        ]
+      }
+      {
+        'name': 'meta.function.arrow.js'
+
+        'begin': '(?=[\\p{L}\\p{Nl}$_][\\p{L}\\p{Nl}$\\p{Mn}\\p{Mc}\\p{Nd}\\p{Pc}\\x{200C}\\x{200D}]*\\s*=>)'
+        'end': '(\\s*=>)'
+
         'patterns': [
           {
             'include': '#function-params'
@@ -374,11 +417,16 @@
   'interpolated_js':
     'patterns': [
       {
-        'begin': '\\$\\{'
-        'captures':
+        'begin': '(\\$)(\\{)'
+        'beginCaptures':
+          '1':
+            'name': 'punctuation.section.embedded.begin.js'
+          '2':
+            'name': 'punctuation.section.embedded.js.meta.curly.brace'
+        'end': '(\\})'
+        'endCaptures':
           '0':
-            'name': 'punctuation.section.embedded.js'
-        'end': '\\}'
+            'name': 'punctuation.section.embedded.js.meta.curly.brace'
         'name': 'source.js.embedded.source'
         'patterns': [
           {
