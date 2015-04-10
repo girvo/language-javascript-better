@@ -130,7 +130,7 @@
     'name': 'storage.modifier.js'
   }
   {
-    'match': '(?<!\\.)\\b(break|case|catch|continue|do|else|finally|for|if|export|import|package|return|switch|throw|try|while|with)(?!\\s*:)\\b'
+    'match': '(?<!\\.)\\b(break|case|catch|continue|do|else|finally|for|if|export|import|package|return|switch|throw|try|while|with|await)(?!\\s*:)\\b'
     'name': 'keyword.control.js'
   }
   {
