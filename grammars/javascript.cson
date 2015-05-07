@@ -5,6 +5,7 @@
   '_js'
   'es'
   'es6'
+  'jsx'
 ]
 'firstLineMatch': '^#!.*\\b(node|iojs)'
 'name': 'JavaScript ES6'
